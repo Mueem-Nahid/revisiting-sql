@@ -171,8 +171,19 @@ GROUP BY department_id;
 SELECT d.department_name,
    AVG(salary),
    sum(salary),
-   max(salary)
+   max(salary),
+   count(*)
 from employee e
    FULL JOIN department d on e.department_id = d.department_id
 GROUP BY d.department_name;
--- start from 31.2
+-- having
+SELECT d.department_name,
+   AVG(salary),
+   sum(salary),
+   max(salary),
+   count(*)
+from employee e
+   FULL JOIN department d on e.department_id = d.department_id
+GROUP BY d.department_name
+HAVING AVG(salary) >= 40000;
+-- start from 31.9
