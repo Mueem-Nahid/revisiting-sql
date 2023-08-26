@@ -1,0 +1,44 @@
+Open psql
+-----------
+* user management:
+-------------------
+
+* to see all the database list: \l
+
+* to see the version of postgreSQL: select version();
+
+* to connect to a database: \c postgres
+
+* or to switch to another db: \c another_db_name
+
+* to find all the table: \d
+
+* to see all the user: \du
+
+* to run the previous command: \g
+
+* to see all the commands: \?
+
+* to clear the screen: \! cls
+
+* to exit from console: \q
+
+
+* to create a db: create database my_new_db;
+
+* to create user: create user my_new_db_user with encrypted password '1234';
+
+* to give permission to a user (database level): GRANT ALL PRIVILEGES ON DATABASE database_name TO username;
+
+* for more - important cmd: https://tableplus.com/blog/2018/04/postgresql-how-to-grant-access-to-users.html
+
+* change user password: alter user my_new_db_user with encrypted password '4567';
+
+* to rename database/table name: 
+alter database/table test1/table-name rename to test2/table_name2;
+
+* for more : https://www.postgresqltutorial.com/postgresql-tutorial/postgresql-alter-table/
+
+* to see the table: \dt+
+
+
