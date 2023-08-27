@@ -186,4 +186,51 @@ from employee e
    FULL JOIN department d on e.department_id = d.department_id
 GROUP BY d.department_name
 HAVING AVG(salary) >= 40000;
+-- sub query in where
+SELECT *
+FROM employee
+WHERE salary = (
+      SELECT max(salary)
+      FROM employee
+   );
+SELECT *
+FROM employee
+WHERE salary IN (
+      SELECT salary
+      FROM employee
+      WHERE employee_name LIKE 'H%'
+   );
+SELECT *
+from employee
+WHERE salary > (
+      SELECT AVG(salary)
+      from employee
+   );
+-- sub query in column
+SELECT employee_name,
+   (
+      SELECT AVG(salary)
+      FROM employee
+   )
+from employee;
+-- sub query in from
+SELECT department_id,
+   avg_salary
+from (
+      SELECT department_id,
+         AVG(salary) as avg_salary
+      from employee
+      GROUP BY department_id
+   ) as temp_table;
+-- using this temporary table we can join with another table
+SELECT tempTable.department_id,
+   avg_salary,
+   department_name
+from (
+      SELECT department_id,
+         AVG(salary) as avg_salary
+      from employee
+      GROUP BY department_id
+   ) as tempTable
+   JOIN department d on d.department_id = tempTable.department_id;
 -- start from 31.9
