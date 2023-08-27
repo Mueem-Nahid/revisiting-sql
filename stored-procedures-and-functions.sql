@@ -22,3 +22,4 @@ RETURN account_count;
 END;
 $$;
 -- end
+EXECUTE FUNCTION account_type_count();
