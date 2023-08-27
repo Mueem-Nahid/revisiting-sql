@@ -233,4 +233,17 @@ from (
       GROUP BY department_id
    ) as tempTable
    JOIN department d on d.department_id = tempTable.department_id;
--- start from 31.9
+-- views
+CREATE VIEW department_avg_salary AS
+SELECT tempTable.department_id,
+   avg_salary,
+   department_name
+from (
+      SELECT department_id,
+         AVG(salary) as avg_salary
+      from employee
+      GROUP BY department_id
+   ) as tempTable
+   JOIN department d on d.department_id = tempTable.department_id;
+SELECT *
+FROM department_avg_salary;
