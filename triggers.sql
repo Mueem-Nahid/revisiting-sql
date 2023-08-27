@@ -32,8 +32,7 @@ RETURN NEW;
 END;
 $$;
 -- trigger (insert/update/delete)
-CREATE OR REPLACE TRIGGER add_tax_trigger
-AFTER
+CREATE OR REPLACE TRIGGER add_tax_trigger BEFORE
 INSERT ON products FOR EACH ROW EXECUTE FUNCTION update_final_price();
 SELECT *
 FROM products;
