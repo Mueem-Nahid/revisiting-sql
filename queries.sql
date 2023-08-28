@@ -97,6 +97,7 @@ FROM Employee;
 -- delete row
 DELETE FROM Employee
 WHERE employee_id = 6;
+DELETE FROM department;
 CREATE TABLE courses (
    course_id SERIAL PRIMARY KEY,
    course_name VARCHAR(50) NOT NULL,
