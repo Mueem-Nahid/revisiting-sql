@@ -35,7 +35,6 @@ def insert_employees_bulk(start, end):
             cursor.executemany("INSERT INTO Employee (employee_name, department_id, salary) VALUES (%s, %s, %s)", employee_values)
             employee_values = []
             conn.commit()
-            print('Data inserted', len(employee_values))
 
     if employee_values:  # Insert remaining data
         cursor.executemany("INSERT INTO Employee (employee_name, department_id, salary) VALUES (%s, %s, %s)", employee_values)
@@ -67,4 +66,4 @@ for thread in employee_threads:
 
 end_time = time.time()
 elapsed_time = end_time - start_time
-print(f"Insertion of 10 million employees took {elapsed_time:.2f} seconds.")
+print(f"Insertion of 5 million employees took {elapsed_time:.2f} seconds.")
